@@ -40,48 +40,37 @@ struct liste *ajoutMusique(struct liste *head, char* ID, char* artiste, char* al
     }
 }
 
-void importListe(){
+struct liste *importListe(){
 
     struct liste *p = NULL;
 
-    char* ligne = NULL;
+    size_t size = (sizeof (char))*100;
+    const char* marqueur = ";";
+
+    char* ligne = (char *)malloc(size);
     char* ID = NULL;
     char* artiste = NULL;
     char* album = NULL;
     char* titre = NULL;
     char* path = NULL;
-    char* infos = NULL;
 
     FILE* liste;
     liste = fopen("musiques.txt", "r");
+    if(liste == NULL){
+        printf("erreur fichier txt\n");
+        exit(1);
+    }
+    while(fgets(ligne, size, liste) != NULL){
 
-    //do{
-        fgets(ligne, (sizeof (char))*100, liste);
+        ID = strtok(ligne, marqueur);
+        artiste = strtok(NULL, marqueur);
+        album = strtok(NULL, marqueur);
+        titre = strtok(NULL, marqueur);
+        path = strtok(NULL, marqueur);
 
-        for(int i = 0; i<5; i++){
-
-            infos = strtok(ligne, " ");
-
-            switch (i) {
-
-            case 0 :
-                ID = infos;
-                break;
-            case 1 :
-                artiste = infos;
-                break;
-            case 2 :
-                album = infos;
-                break;
-            case 3 :
-                titre = infos;
-                break;
-            case 4 :
-                path = infos;
-                break;
-            }
-        }
         printf("%s \n %s \n %s \n %s \n %s \n", ID, artiste, album, titre, path);
-        ajoutMusique(p, ID, artiste, album, titre, path);
-    //}while();
+        p = ajoutMusique(p, ID, artiste, album, titre, path);
+    }
+    free(ligne);
+    return p;
 }

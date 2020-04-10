@@ -7,7 +7,10 @@ int main(int argc, char* argv[]){
     char* audioFile = NULL;
     char* audioName = NULL;
 
-    importListe();
+    struct liste *p = NULL;
+
+    p = importListe();
+    afficherListe(p);
 
     //menu
     printf("--- AUDIO PLAYER ---\n\n");
@@ -40,4 +43,5 @@ int main(int argc, char* argv[]){
     }
     return 0;
 }
+
 

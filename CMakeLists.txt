@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(ProjetTechProg)
+project(pMusic)
 
 add_executable(${PROJECT_NAME}
     "main.c"
@@ -11,6 +11,8 @@ add_executable(${PROJECT_NAME}
     "recherche.h"
     "liste.c"
     "liste.h"
+    "afficherListe.c"
+    "afficherListe.h"
     )
 
 target_link_libraries(${PROJECT_NAME}
