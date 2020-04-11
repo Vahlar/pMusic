@@ -34,8 +34,8 @@ struct liste *ajoutMusique(struct liste *head, char* ID, char* artiste, char* al
             p = p->next;
         }while(p != NULL);
 
-        pNew = allouerMusique(ID, artiste, album, titre, path, NULL, pPred);
-        pPred->next = pNew;
+        p = allouerMusique(ID, artiste, album, titre, path, NULL, pPred);
+        pPred->next = p;
         return head;
     }
 }
@@ -45,7 +45,7 @@ struct liste *importListe(){
     struct liste *p = NULL;
 
     size_t size = (sizeof (char))*100;
-    const char* marqueur = ";";
+    const char* marqueur = "|";
 
     char* ligne = (char *)malloc(size);
     char* ID = NULL;
@@ -68,7 +68,7 @@ struct liste *importListe(){
         titre = strtok(NULL, marqueur);
         path = strtok(NULL, marqueur);
 
-        printf("%s \n %s \n %s \n %s \n %s \n", ID, artiste, album, titre, path);
+        printf("%s\n%s\n%s\n%s\n%s\n", ID, artiste, album, titre, path);
         p = ajoutMusique(p, ID, artiste, album, titre, path);
     }
     free(ligne);

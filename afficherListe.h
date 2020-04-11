@@ -3,6 +3,6 @@
 
 #include "common.h"
 
-void  afficherListe(struct liste *head);
+void afficherListe(struct liste *head);
 
 #endif

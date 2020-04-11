@@ -1,4 +1,8 @@
 #include "common.h"
+#include "audio.h"
+#include "recherche.h"
+#include "liste.h"
+#include "afficherListe.h"
 
 int main(int argc, char* argv[]){
 

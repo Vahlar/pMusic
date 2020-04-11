@@ -6,10 +6,17 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "audio.h"
-#include "recherche.h"
-#include "liste.h"
-#include "afficherListe.h"
+struct liste{
+
+    char* ID;
+    char* artiste;
+    char* album;
+    char* titre;
+    char* path;
+    struct liste *next;
+    struct liste *pred;
+
+};
 
 #endif
 
