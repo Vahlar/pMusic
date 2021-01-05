@@ -3,6 +3,6 @@
 
 #include "common.h"
 
-void lireAudio(char* audioFile);
+void lireAudio(); //(char* audioFile);
 
 #endif

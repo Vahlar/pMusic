@@ -62,10 +62,10 @@ int main(int argc, char* argv[]){
 
         //dans cette partie, l'utilisateur doit entrer le nom de la musique
         //elle est alors recherché puis lu si disponible
-        printf("nom de fichier :\n");
-        scanf("%s", audioName);
-        audioFile = rechercheAudio(audioName);
-        lireAudio(audioFile);
+        //printf("nom de fichier :\n");
+        //scanf("%s", audioName);
+        //audioFile = rechercheAudio(audioName);
+        lireAudio(); //(audioFile);
         break;
     }
     return 0;

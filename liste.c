@@ -12,14 +12,8 @@ struct liste *allouerMusique(char* pID, char* pArtiste, char* pAlbum, char* pTit
 
     int size = (strlen(pID)+1)+(strlen(pArtiste)+1)+(strlen(pAlbum)+1)+(strlen(pTitre)+1)+(strlen(pPath)+1);
 
-    printf("size: %d\n", size);
+    //printf("size: %d\n", size);
     p = malloc(sizeof(char)*size);
-
-//    p->ID = malloc((sizeof(char))*(strlen(pID)+1));
-//    p->artiste = malloc((sizeof(char))*(strlen(pArtiste)+1));
-//    p->album = malloc((sizeof(char))*(strlen(pAlbum)+1));
-//    p->titre = malloc((sizeof(char))*(strlen(pTitre)+1));
-//    p->path = malloc((sizeof(char))*(strlen(pPath)+1));
 
     p->ID = pID;
     p->artiste = pArtiste;
@@ -75,6 +69,7 @@ struct liste *importListe(){
     char* titre = NULL;
     char* path = NULL;
 
+    //ouverture du fichier txt
     FILE* liste;
     liste = fopen("musiques.txt", "r");
     if(liste == NULL){
@@ -89,7 +84,6 @@ struct liste *importListe(){
         titre = strtok(NULL, marqueur);
         path = strtok(NULL, marqueur);
 
-        //printf("%s\n%s\n%s\n%s\n%s\n", ID, artiste, album, titre, path);
         p = ajoutMusique(p, ID, artiste, album, titre, path);
     }
     free(ligne);

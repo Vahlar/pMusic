@@ -1,6 +1,6 @@
 #include "audio.h"
 
-void lireAudio(char* audioFile){
+void lireAudio(){ //(char* audioFile)
 
     FMOD_SYSTEM *system;
     FMOD_SOUND *musique;
@@ -11,7 +11,7 @@ void lireAudio(char* audioFile){
     FMOD_System_Init(system, 1, FMOD_INIT_NORMAL, NULL);
 
     // ouverture du fichier
-    resultat = FMOD_System_CreateSound(system, audioFile, FMOD_2D | FMOD_CREATESTREAM, 0, &musique);
+    resultat = FMOD_System_CreateSound(system, "test.wav", FMOD_2D | FMOD_CREATESTREAM, 0, &musique);
 
     //verification du succes de l'ouverture
     if (resultat != FMOD_OK){
