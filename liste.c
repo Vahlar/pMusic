@@ -1,5 +1,11 @@
+/*
+Ces differentes fonctions permettent d'importer l'enseemble des musique presente dans le fichier txt
+et de les inserrer dans une liste chainée
+*/
+
 #include "liste.h"
 
+//
 struct liste *allouerMusique(char* pID, char* pArtiste, char* pAlbum, char* pTitre, char* pPath, struct liste *next, struct liste *pred){
 
     struct liste *p = NULL;
@@ -51,13 +57,17 @@ struct liste *ajoutMusique(struct liste *head, char* ID, char* artiste, char* al
     }
 }
 
+//cette fonction permet d'importer les données presentes dans le fichier txt
 struct liste *importListe(){
 
+    //declaration de la liste
     struct liste *p = NULL;
 
+    //declaration de size
     size_t size = (sizeof (char))*100;
     const char* marqueur = "|";
 
+    //declration des variables contenant les données
     char* ligne = (char *)malloc(size);
     char* ID = NULL;
     char* artiste = NULL;
